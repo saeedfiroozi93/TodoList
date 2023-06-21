@@ -11,13 +11,17 @@ const TextInput = ({
       styles={() => ({
         input: {
           fontSize: "16px",
-          border: "1px solid #AAAAAA80",
+          border: "2px solid #AAAAAA80",
           backgroundColor: "#F0F1F3",
           textAlign: "right",
           ":focus": {
-            border: "1px solid #AAAAAAff",
+            border: "2px solid #134E4A",
           },
           height: "50px",
+          "::placeholder" : {
+            textAlign: 'right',
+            color: '#616161'
+          }
         },
       })}
       {...otherProps}

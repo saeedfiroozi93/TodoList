@@ -140,6 +140,7 @@ const App = () => {
             {...form.getInputProps("title")}
             w={"100%"}
             placeholder="تودو را بنویسید"
+            
           />
 
           {/* Menu for Select Todo BackGrounColor */}
