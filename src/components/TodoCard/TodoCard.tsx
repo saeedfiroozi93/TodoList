@@ -1,6 +1,6 @@
 import { Checkbox, Card as MantineTodoCard, Tooltip } from "@mantine/core";
 import { CardProps as MantineTodoCardProps } from "@mantine/core";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TextInput } from "..";
 import { BiEdit } from "react-icons/bi";
 import { RiDeleteBinLine } from "react-icons/ri";
@@ -25,8 +25,12 @@ const TodoCard = ({
   const [inputValue, setValue] = useState(todoText);
   const [isEdit, setIsEdit] = useState(false);
 
+  useEffect(() => {
+    checked
+      ? localStorage.setItem("doneTodoId", id)
+      : localStorage.removeItem("doneTodoId");
+  }, [checked, id]);
 
-  
   // handle Todo Checked and set todo readOnly and uneditable
   const handleCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(event.currentTarget.checked);
@@ -72,6 +76,7 @@ const TodoCard = ({
               styles={() => ({
                 input: {
                   border: "1px solid gray",
+                  cursor: "pointer",
                 },
               })}
               checked={checked}
@@ -90,6 +95,7 @@ const TodoCard = ({
             onChange={(event) => setValue(event.currentTarget.value)}
             styles={() => ({
               input: {
+                cursor: readOnly && "default",
                 fontSize: "16px",
                 color: checked && "gray",
                 border: readOnly || checked ? "none" : "1px solid #AAAAAA80",
@@ -114,14 +120,14 @@ const TodoCard = ({
                   className="cursor-pointer"
                   size="1.7rem"
                   color={"#22C55E"}
-                  onClick={!checked && handleConfirmEditTodo}
+                  onClick={!checked ? handleConfirmEditTodo : null}
                 />
               ) : (
                 <BiEdit
                   className="cursor-pointer"
                   size="1.7rem"
                   color={"#0EA5E9"}
-                  onClick={!checked && handleEditTodo}
+                  onClick={!checked ? handleEditTodo : null}
                 />
               )}
             </div>

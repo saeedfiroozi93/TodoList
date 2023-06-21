@@ -23,13 +23,12 @@ const App = () => {
     localStorage.setItem("Todos", JSON.stringify(todos.length));
   }, [todos]);
 
-
   // handle delete Todo
   const deleteTodo = (todoId: string) => {
     todoId ? setDeleteModal({ state: true, todoId }) : null;
   };
 
-
+ 
   // handle Error for Entet Todo info
   const handleError = (errors: typeof form.errors) => {
     errors.title
@@ -65,6 +64,7 @@ const App = () => {
           id: randomId(),
           title: values.title,
           color: values.color,
+          checkState: false,
         },
       ]);
     form.setFieldValue("color", "");
@@ -140,7 +140,6 @@ const App = () => {
             {...form.getInputProps("title")}
             w={"100%"}
             placeholder="تودو را بنویسید"
-            className="placeholder:text-slate-900"
           />
 
           {/* Menu for Select Todo BackGrounColor */}
