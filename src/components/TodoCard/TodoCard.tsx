@@ -25,25 +25,31 @@ const TodoCard = ({
   const [inputValue, setValue] = useState(todoText);
   const [isEdit, setIsEdit] = useState(false);
 
+  // handle Todo Checked and set todo readOnly and uneditable
   const handleCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(event.currentTarget.checked);
     setIsEdit(false);
     setReadOnly(true);
   };
 
+  // handle Todo Edit and set todo editable
   const handleEditTodo = () => {
     setReadOnly(false);
     setIsEdit(true);
   };
+
+  // handle Todo confirm Edit and set todo readOnly
   const handleConfirmEditTodo = () => {
     setReadOnly(true);
     setIsEdit(false);
   };
 
+  // handle delte Todo and pass todoId to parent Component
   const handleDeleteTodo = () => {
     deleteFunc(id, true);
   };
   return (
+    // Todo Card Component
     <MantineTodoCard
       id={id}
       fz={"18px"}
@@ -56,6 +62,7 @@ const TodoCard = ({
       {...otherProps}
       className="overflow-visible"
     >
+      {/* Todo Card Component with checkBox, Edit, ConfirmEdit and delete Button */}
       <div className="flex flex-row justify-between items-center gap-[5px] overflow-visible">
         <div className="flex flex-row w-full justify-between items-center gap-[5px] overflow-visible">
           <Tooltip disabled={checked} label="انجام شد" withArrow color="green">

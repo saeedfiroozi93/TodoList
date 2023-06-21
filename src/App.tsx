@@ -184,7 +184,7 @@ const App = () => {
             h={"50px"}
             type="submit"
             size="lg"
-            className="btn-grad btn-grad:hover"
+            className="submit-btn-grad submit-btn-grad:hover"
           >
             ثبت تودو
           </Button>
