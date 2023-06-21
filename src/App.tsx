@@ -10,7 +10,7 @@ import { randomId } from "@mantine/hooks";
 import { Notifications, notifications } from "@mantine/notifications";
 
 interface todoType {
-  id: any;
+  id: string;
   title: string;
   color: string;
 }
@@ -23,10 +23,12 @@ const App = () => {
     localStorage.setItem("Todos", JSON.stringify(todos.length));
   }, [todos]);
 
+
   // handle delete Todo
-  const deleteTodo = (todoId: any) => {
+  const deleteTodo = (todoId: string) => {
     todoId ? setDeleteModal({ state: true, todoId }) : null;
   };
+
 
   // handle Error for Entet Todo info
   const handleError = (errors: typeof form.errors) => {
@@ -147,7 +149,7 @@ const App = () => {
             offset={10}
             styles={() => ({
               dropdown: {
-                backgroundColor: "#312E81",
+                backgroundColor: "#1C1917",
                 borderRadius: "10px",
               },
               item: {

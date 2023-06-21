@@ -25,6 +25,8 @@ const TodoCard = ({
   const [inputValue, setValue] = useState(todoText);
   const [isEdit, setIsEdit] = useState(false);
 
+
+  
   // handle Todo Checked and set todo readOnly and uneditable
   const handleCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(event.currentTarget.checked);
