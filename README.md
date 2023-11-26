@@ -1,5 +1,6 @@
 # TodoList
 Todo List App with add, edit &amp; delete features
 
-clone project
-run command: npm run dev
+1. clone project
+
+2. run command: npm run dev
