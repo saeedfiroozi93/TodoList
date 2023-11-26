@@ -1,7 +1,11 @@
-import { Checkbox, Card as MantineTodoCard, Tooltip } from "@mantine/core";
+import {
+  Checkbox,
+  Card as MantineTodoCard,
+  Tooltip,
+  TextInput,
+} from "@mantine/core";
 import { CardProps as MantineTodoCardProps } from "@mantine/core";
 import { useEffect, useState } from "react";
-import { TextInput } from "..";
 import { BiEdit } from "react-icons/bi";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { BsCheckCircle } from "react-icons/bs";
@@ -64,7 +68,6 @@ const TodoCard = ({
       px={"15px"}
       py={"5px"}
       bg={!checked ? bgColor : "#D1D5DB"}
-      styles={() => ({})}
       {...otherProps}
       className="overflow-visible"
     >
@@ -95,9 +98,9 @@ const TodoCard = ({
             onChange={(event) => setValue(event.currentTarget.value)}
             styles={() => ({
               input: {
-                cursor: readOnly && "default",
+                cursor: readOnly ? "default" : "",
                 fontSize: "16px",
-                color: checked && "gray",
+                color: checked ? "gray" : "",
                 border: readOnly || checked ? "none" : "1px solid #AAAAAA80",
                 backgroundColor: readOnly || checked ? "transparent" : "white",
                 textAlign: "right",
